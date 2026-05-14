@@ -710,7 +710,7 @@
 
     document.body.classList.add('searching');
     const matched = [];
-    document.querySelectorAll('.card').forEach(card => {
+    document.querySelectorAll('.section .card').forEach(card => {
       const name = card.dataset.name || '';
       const desc = card.dataset.desc || '';
       const category = card.dataset.category || '';
