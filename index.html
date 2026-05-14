@@ -26,7 +26,6 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
     header {
       text-align: center;
       padding: 48px 24px 32px;
@@ -155,7 +154,6 @@
       padding: 24px 16px 60px;
     }
 
-    /* ── SECTION ── */
     .section { display: none; }
     .section.visible { display: block; }
 
@@ -214,6 +212,86 @@
       border-color: #39ff1444;
     }
 
+    /* ── SLIDER ── */
+    .slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--tag-bg);
+    }
+
+    .slider-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .slider-track img {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--tag-bg);
+      flex-shrink: 0;
+    }
+
+    /* Prev / Next buttons */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      border: 1px solid #39ff1444;
+      color: var(--accent);
+      font-size: 16px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .slider-btn:hover { background: rgba(57,255,20,0.15); }
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
+    .slider-btn.hidden { display: none; }
+
+    /* Dot indicators */
+    .slider-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .slider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .slider-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    /* Counter */
+    .slider-counter {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 11px;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+
+    /* Single image (no slider needed) */
     .card-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -311,7 +389,6 @@
     }
     .card-link:active { transform: scale(0.98); }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 20px;
@@ -329,7 +406,6 @@
   <p>Repository perbelanjaan online Vian<br/>Semua udah aku coba dan yang di sini udah approved!<br>Kalo mau beli silahkan, siapa tau butuh :D</p>
 </header>
 
-<!-- ── SEARCH BAR ── -->
 <div class="search-wrapper">
   <div class="search-box">
     <span class="search-icon">🔍</span>
@@ -338,7 +414,6 @@
   </div>
 </div>
 
-<!-- ── TABS ── -->
 <div class="tabs-wrapper">
   <div class="tabs" id="tabs">
     <button class="tab active" onclick="showSection('Work Out', this)">🏋️ Work Out</button>
@@ -351,7 +426,6 @@
 
 <main>
 
-  <!-- ── SEARCH RESULTS ── -->
   <div id="search-results">
     <p class="search-results-title" id="searchResultsLabel"></p>
     <div id="searchResultsContainer"></div>
@@ -365,8 +439,16 @@
   <div class="section visible" id="section-Work Out">
     <h2 class="section-title"><span></span>Work Out</h2>
 
+    <!--
+      CARA PAKAI SLIDER:
+      Ganti <img class="card-img"> dengan <div class="slider" data-images="foto1.jpg,foto2.jpg,foto3.jpg">
+      Pisahkan nama file foto dengan koma, tanpa spasi.
+      Contoh di bawah: Baju Polo pakai 2 foto.
+    -->
+
     <div class="card" data-name="Baju Olahraga Polo" data-desc="All Rounder Baju Olahraga, model bajunya polo jadi lebih keren." data-category="Work Out">
-      <img class="card-img" src="Polo_Whittaker.webp" alt="Polo Whittaker">
+      <!-- SLIDER: isi data-images dengan nama file foto dipisah koma -->
+      <div class="slider" data-images="Polo_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
       <div class="card-body">
         <div class="card-header">
           <div class="card-name">Baju Olahraga Polo</div>
@@ -377,6 +459,7 @@
       </div>
     </div>
 
+    <!-- Produk dengan 1 foto biasa (tidak pakai slider) -->
     <div class="card" data-name="Yoga Mat Anti Slip 8mm" data-desc="Empuk banget, nggak licin meski udah keringat. Ukurannya pas, bisa dilipat buat dibawa ke gym. Warnanya juga banyak pilihannya!" data-category="Work Out">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
@@ -510,6 +593,76 @@
 </footer>
 
 <script>
+  /* ── INIT SLIDERS ── */
+  document.querySelectorAll('.slider[data-images]').forEach(slider => {
+    const images = slider.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
+    if (images.length === 0) return;
+
+    let current = 0;
+
+    /* Build track */
+    const track = document.createElement('div');
+    track.className = 'slider-track';
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      track.appendChild(img);
+    });
+    slider.appendChild(track);
+
+    if (images.length === 1) return; /* single image, no controls needed */
+
+    /* Counter */
+    const counter = document.createElement('div');
+    counter.className = 'slider-counter';
+    counter.textContent = `1 / ${images.length}`;
+    slider.appendChild(counter);
+
+    /* Dots */
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'slider-dots';
+    images.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goTo(i);
+      dotsEl.appendChild(dot);
+    });
+    slider.appendChild(dotsEl);
+
+    /* Prev / Next */
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'slider-btn prev hidden';
+    prevBtn.innerHTML = '&#8249;';
+    prevBtn.onclick = () => goTo(current - 1);
+    slider.appendChild(prevBtn);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'slider-btn next';
+    nextBtn.innerHTML = '&#8250;';
+    nextBtn.onclick = () => goTo(current + 1);
+    slider.appendChild(nextBtn);
+
+    /* Swipe support */
+    let startX = 0;
+    slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    });
+
+    function goTo(index) {
+      if (index < 0 || index >= images.length) return;
+      current = index;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      counter.textContent = `${current + 1} / ${images.length}`;
+      dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.classList.toggle('hidden', current === 0);
+      nextBtn.classList.toggle('hidden', current === images.length - 1);
+    }
+  });
+
+  /* ── TABS ── */
   function showSection(id, btn) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -517,6 +670,7 @@
     btn.classList.add('active');
   }
 
+  /* ── SEARCH ── */
   const searchInput = document.getElementById('searchInput');
   const searchClear = document.getElementById('searchClear');
   const searchResultsContainer = document.getElementById('searchResultsContainer');
@@ -526,14 +680,11 @@
   searchInput.addEventListener('input', function() {
     const query = this.value.trim().toLowerCase();
     searchClear.classList.toggle('visible', query.length > 0);
-
     if (query.length === 0) { clearSearch(); return; }
 
     document.body.classList.add('searching');
-    const allCards = document.querySelectorAll('.card');
     const matched = [];
-
-    allCards.forEach(card => {
+    document.querySelectorAll('.card').forEach(card => {
       const name = card.dataset.name || '';
       const desc = card.dataset.desc || '';
       const category = card.dataset.category || '';
@@ -543,35 +694,30 @@
     });
 
     searchResultsContainer.innerHTML = '';
-
     if (matched.length === 0) {
       noResults.style.display = 'block';
       searchResultsLabel.innerHTML = `Hasil untuk "<span>${this.value}</span>"`;
     } else {
       noResults.style.display = 'none';
       searchResultsLabel.innerHTML = `${matched.length} hasil untuk "<span>${this.value}</span>"`;
-
-      matched.forEach(({ card, name, desc, category }) => {
+      matched.forEach(({ card, category }) => {
         const clone = card.cloneNode(true);
         const cardBody = clone.querySelector('.card-body');
         const badge = document.createElement('div');
         badge.className = 'card-category-badge';
         badge.textContent = category;
         cardBody.insertBefore(badge, cardBody.firstChild);
-
         const nameEl = clone.querySelector('.card-name');
         if (nameEl) nameEl.innerHTML = highlight(nameEl.textContent, query);
         const descEl = clone.querySelector('.card-desc');
         if (descEl) descEl.innerHTML = highlight(descEl.textContent, query);
-
         searchResultsContainer.appendChild(clone);
       });
     }
   });
 
   function highlight(text, query) {
-    const regex = new RegExp(`(${query})`, 'gi');
-    return text.replace(regex, '<mark>$1</mark>');
+    return text.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>');
   }
 
   function clearSearch() {
