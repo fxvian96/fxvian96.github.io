@@ -7,14 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #faf7f2;
-      --card: #ffffff;
-      --accent: #c8783a;
-      --accent2: #e9d4b8;
-      --text: #2c2620;
-      --muted: #9a8b7e;
-      --tag-bg: #f2ebe0;
-      --border: #ede4d6;
+      --bg: #0a0a0a;
+      --card: #111111;
+      --accent: #39ff14;
+      --accent2: #1a3d0a;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --tag-bg: #1a1a1a;
+      --border: #222222;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +30,7 @@
     header {
       text-align: center;
       padding: 48px 24px 32px;
-      background: linear-gradient(160deg, #faf7f2 60%, #f0e5d2);
+      background: linear-gradient(160deg, #0a0a0a 60%, #0d1a08);
       border-bottom: 1px solid var(--border);
     }
 
@@ -42,13 +42,16 @@
       font-size: 32px;
       margin: 0 auto 16px;
       border: 3px solid var(--accent);
+      object-fit: cover;
+      box-shadow: 0 0 18px #39ff1466;
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 26px;
-      color: var(--text);
+      color: var(--accent);
       letter-spacing: -0.3px;
+      text-shadow: 0 0 12px #39ff1455;
     }
 
     header p {
@@ -59,12 +62,61 @@
       line-height: 1.6;
     }
 
+    /* ── SEARCH BAR ── */
+    .search-wrapper {
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #161616;
+      border: 1.5px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 10px 14px;
+      gap: 10px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px #39ff1433;
+    }
+
+    .search-icon { font-size: 16px; flex-shrink: 0; }
+
+    .search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .search-box input::placeholder { color: var(--muted); }
+
+    .search-clear {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      display: none;
+    }
+    .search-clear.visible { display: block; }
+
     /* ── CATEGORY TABS ── */
     .tabs-wrapper {
       position: sticky;
       top: 0;
       z-index: 99;
-      background: var(--bg);
+      background: #0a0a0a;
       border-bottom: 1px solid var(--border);
       padding: 12px 16px;
     }
@@ -84,7 +136,7 @@
       font-size: 13px;
       font-weight: 500;
       cursor: pointer;
-      border: 1.5px solid var(--border);
+      border: 1.5px solid #333;
       background: transparent;
       color: var(--muted);
       transition: all 0.2s ease;
@@ -92,7 +144,8 @@
     .tab.active, .tab:hover {
       background: var(--accent);
       border-color: var(--accent);
-      color: #fff;
+      color: #000;
+      box-shadow: 0 0 12px #39ff1466;
     }
 
     /* ── MAIN CONTENT ── */
@@ -106,6 +159,27 @@
     .section { display: none; }
     .section.visible { display: block; }
 
+    body.searching .tabs-wrapper { display: none; }
+    body.searching .section { display: none !important; }
+    body.searching #search-results { display: block; }
+
+    #search-results { display: none; }
+
+    .search-results-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .search-results-title span { color: var(--accent); font-weight: 500; }
+
+    .no-results {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .no-results .icon { font-size: 40px; margin-bottom: 12px; }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
@@ -113,6 +187,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--text);
     }
     .section-title span {
       display: inline-block;
@@ -120,24 +195,25 @@
       border-radius: 50%;
       background: var(--accent);
       margin-right: 4px;
+      box-shadow: 0 0 6px #39ff14;
     }
 
     /* ── PRODUCT CARD ── */
     .card {
       background: var(--card);
       border-radius: 18px;
-      border: 1px solid var(--border);
+      border: 1px solid #222;
       margin-bottom: 18px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 24px #39ff1422;
+      border-color: #39ff1444;
     }
 
-    /* Screenshot area */
     .card-img {
       width: 100%;
       height: 200px;
@@ -146,11 +222,10 @@
       background: var(--tag-bg);
     }
 
-    /* Placeholder when no image */
     .card-img-placeholder {
       width: 100%;
       height: 160px;
-      background: linear-gradient(135deg, var(--accent2), #f5e9d6);
+      background: linear-gradient(135deg, #111, #1a2a10);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -158,6 +233,7 @@
       gap: 8px;
       color: var(--muted);
       font-size: 13px;
+      border-bottom: 1px solid #222;
     }
     .card-img-placeholder .icon { font-size: 36px; }
 
@@ -177,17 +253,36 @@
       line-height: 1.3;
       flex: 1;
       padding-right: 12px;
+      color: var(--text);
+    }
+
+    .card-name mark, .card-desc mark {
+      background: #39ff1433;
+      color: var(--accent);
+      border-radius: 3px;
+      padding: 0 2px;
     }
 
     .price-tag {
-      background: var(--tag-bg);
+      background: #0d1a08;
       color: var(--accent);
       font-size: 12px;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 99px;
       white-space: nowrap;
-      border: 1px solid var(--accent2);
+      border: 1px solid #39ff1444;
+    }
+
+    .card-category-badge {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--muted);
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 99px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
     }
 
     .card-desc {
@@ -201,16 +296,19 @@
       display: block;
       text-align: center;
       background: var(--accent);
-      color: #fff;
+      color: #000;
       text-decoration: none;
       font-size: 13.5px;
-      font-weight: 500;
+      font-weight: 600;
       padding: 11px;
       border-radius: 10px;
       letter-spacing: 0.2px;
-      transition: background 0.2s ease, transform 0.1s ease;
+      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     }
-    .card-link:hover { background: #b36b2e; }
+    .card-link:hover {
+      background: #55ff33;
+      box-shadow: 0 0 16px #39ff1466;
+    }
     .card-link:active { transform: scale(0.98); }
 
     /* ── FOOTER ── */
@@ -225,62 +323,64 @@
 </head>
 <body>
 
-<!-- ════ HEADER ════ -->
-<!-- EDIT: ganti emoji, nama, dan bio kamu di sini -->
 <header>
   <img class="avatar" src="logo_approved_github.png" alt="logo">
   <h1>fxvian</h1>
   <p>Repository perbelanjaan online Vian<br/>Semua udah aku coba dan yang di sini udah approved!<br>Kalo mau beli silahkan, siapa tau butuh :D</p>
 </header>
 
-<!-- ════ CATEGORY TABS ════ -->
-<!-- EDIT: tambah/hapus tab sesuai kategorimu -->
+<!-- ── SEARCH BAR ── -->
+<div class="search-wrapper">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Cari produk..." autocomplete="off"/>
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+  </div>
+</div>
+
+<!-- ── TABS ── -->
 <div class="tabs-wrapper">
   <div class="tabs" id="tabs">
     <button class="tab active" onclick="showSection('Work Out', this)">🏋️ Work Out</button>
     <button class="tab" onclick="showSection('Fashion', this)">🧥 Fashion</button>
-    <button class="tab" onclick="showSection('Perlengkapan Diet', this)">🥗 Perlengkapan Diet </button>
-    <button class="tab" onclick="showSection('Makanan Enak', this)">🍙 Makanan Enak </button>
-    <button class="tab" onclick="showSection('Skincare', this)">✨ Skincare </button>
-    <!-- Tambah tab baru: <button class="tab" onclick="showSection('skincare', this)">✨ Skincare</button> -->
+    <button class="tab" onclick="showSection('Perlengkapan Diet', this)">🥗 Perlengkapan Diet</button>
+    <button class="tab" onclick="showSection('Makanan Enak', this)">🍙 Makanan Enak</button>
+    <button class="tab" onclick="showSection('Skincare', this)">✨ Skincare</button>
   </div>
 </div>
 
-<!-- ════ MAIN CONTENT ════ -->
 <main>
+
+  <!-- ── SEARCH RESULTS ── -->
+  <div id="search-results">
+    <p class="search-results-title" id="searchResultsLabel"></p>
+    <div id="searchResultsContainer"></div>
+    <div class="no-results" id="noResults" style="display:none">
+      <div class="icon">🔦</div>
+      <div>Produk tidak ditemukan</div>
+    </div>
+  </div>
 
   <!-- ── SECTION: Work Out ── -->
   <div class="section visible" id="section-Work Out">
     <h2 class="section-title"><span></span>Work Out</h2>
 
-    <!-- PRODUCT CARD 1 -->
-    <!-- EDIT: ganti src="..." dengan path foto screenshot kamu -->
-    <div class="card">
+    <div class="card" data-name="Resistance Band Set" data-desc="Aku udah pakai ini 3 bulan dan suka banget! Karet-nya kuat, nggak gampang putus. Cocok buat latihan di rumah. Set-nya lengkap ada 5 level resistance." data-category="Work Out">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
       </div>
       <div class="card-body">
         <div class="card-header">
-          <!-- EDIT: nama produk -->
           <div class="card-name">Resistance Band Set</div>
-          <!-- EDIT: kisaran harga -->
           <div class="price-tag">Rp 80–120K</div>
         </div>
-        <!-- EDIT: deskripsi/reviewmu -->
-        <p class="card-desc">
-          Aku udah pakai ini 3 bulan dan suka banget! Karet-nya kuat, nggak gampang putus.
-          Cocok buat latihan di rumah. Set-nya lengkap ada 5 level resistance.
-        </p>
-        <!-- EDIT: ganti href="..." dengan link affiliate Shopee kamu -->
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Aku udah pakai ini 3 bulan dan suka banget! Karet-nya kuat, nggak gampang putus. Cocok buat latihan di rumah. Set-nya lengkap ada 5 level resistance.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
 
-    <!-- PRODUCT CARD 2 -->
-    <div class="card">
+    <div class="card" data-name="Yoga Mat Anti Slip 8mm" data-desc="Empuk banget, nggak licin meski udah keringat. Ukurannya pas, bisa dilipat buat dibawa ke gym. Warnanya juga banyak pilihannya!" data-category="Work Out">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
@@ -290,24 +390,17 @@
           <div class="card-name">Yoga Mat Anti Slip 8mm</div>
           <div class="price-tag">Rp 150–200K</div>
         </div>
-        <p class="card-desc">
-          Empuk banget, nggak licin meski udah keringat. Ukurannya pas, bisa dilipat buat dibawa ke gym.
-          Warnanya juga banyak pilihannya!
-        </p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Empuk banget, nggak licin meski udah keringat. Ukurannya pas, bisa dilipat buat dibawa ke gym. Warnanya juga banyak pilihannya!</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
+  </div>
 
-  </div><!-- end section olahraga -->
-
-
-  <!-- ── SECTION: BAJU ── -->
+  <!-- ── SECTION: Fashion ── -->
   <div class="section" id="section-Fashion">
     <h2 class="section-title"><span></span>Fashion</h2>
 
-    <div class="card">
+    <div class="card" data-name="Oversized Tee Cotton Combed 30s" data-desc="Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali." data-category="Fashion">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
@@ -317,17 +410,12 @@
           <div class="card-name">Oversized Tee Cotton Combed 30s</div>
           <div class="price-tag">Rp 60–90K</div>
         </div>
-        <p class="card-desc">
-          Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget
-          oversize-nya. Warna nggak pudar setelah dicuci berkali-kali.
-        </p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-name="Celana Cargo Wanita" data-desc="Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos." data-category="Fashion">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
@@ -337,24 +425,37 @@
           <div class="card-name">Celana Cargo Wanita</div>
           <div class="price-tag">Rp 120–180K</div>
         </div>
-        <p class="card-desc">
-          Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. 
-          Cocok dipadu sama tanktop atau kaos polos.
-        </p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
+  </div>
 
-  </div><!-- end section baju -->
+  <!-- ── SECTION: Perlengkapan Diet ── -->
+  <div class="section" id="section-Perlengkapan Diet">
+    <h2 class="section-title"><span></span>Perlengkapan Diet</h2>
 
+    <div class="card" data-name="Nama Produk" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Perlengkapan Diet">
+      <div class="card-img-placeholder">
+        <div class="icon">📸</div>
+        <div>Ganti dengan screenshot bukti beli</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-name">Nama Produk</div>
+          <div class="price-tag">Rp 0–0K</div>
+        </div>
+        <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+      </div>
+    </div>
+  </div>
 
-  <!-- ── SECTION: MAKANAN ── -->
-  <div class="section" id="section-makanan">
-    <h2 class="section-title"><span></span>Makanan</h2>
+  <!-- ── SECTION: Makanan Enak ── -->
+  <div class="section" id="section-Makanan Enak">
+    <h2 class="section-title"><span></span>Makanan Enak</h2>
 
-    <div class="card">
+    <div class="card" data-name="Granola Oat Homemade" data-desc="Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!" data-category="Makanan Enak">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
@@ -364,17 +465,12 @@
           <div class="card-name">Granola Oat Homemade</div>
           <div class="price-tag">Rp 35–55K</div>
         </div>
-        <p class="card-desc">
-          Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt.
-          Aku beli yang rasa coklat kacang, udah repeat order 3x!
-        </p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-name="Protein Bar Lokal" data-desc="Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond." data-category="Makanan Enak">
       <div class="card-img-placeholder">
         <div class="icon">📸</div>
         <div>Ganti dengan screenshot bukti beli</div>
@@ -384,17 +480,31 @@
           <div class="card-name">Protein Bar Lokal</div>
           <div class="price-tag">Rp 25–40K/pcs</div>
         </div>
-        <p class="card-desc">
-          Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout.
-          Rasa paling enak menurut aku: Peanut Butter & Choco Almond.
-        </p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">
-          🛒 Lihat di Shopee
-        </a>
+        <p class="card-desc">Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
       </div>
     </div>
+  </div>
 
-  </div><!-- end section makanan -->
+  <!-- ── SECTION: Skincare ── -->
+  <div class="section" id="section-Skincare">
+    <h2 class="section-title"><span></span>Skincare</h2>
+
+    <div class="card" data-name="Nama Produk Skincare" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Skincare">
+      <div class="card-img-placeholder">
+        <div class="icon">📸</div>
+        <div>Ganti dengan screenshot bukti beli</div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-name">Nama Produk</div>
+          <div class="price-tag">Rp 0–0K</div>
+        </div>
+        <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
+        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+      </div>
+    </div>
+  </div>
 
 </main>
 
@@ -404,13 +514,75 @@
 
 <script>
   function showSection(id, btn) {
-    // hide all sections
     document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
-    // deactivate all tabs
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    // show target
     document.getElementById('section-' + id).classList.add('visible');
     btn.classList.add('active');
+  }
+
+  const searchInput = document.getElementById('searchInput');
+  const searchClear = document.getElementById('searchClear');
+  const searchResultsContainer = document.getElementById('searchResultsContainer');
+  const searchResultsLabel = document.getElementById('searchResultsLabel');
+  const noResults = document.getElementById('noResults');
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    searchClear.classList.toggle('visible', query.length > 0);
+
+    if (query.length === 0) { clearSearch(); return; }
+
+    document.body.classList.add('searching');
+    const allCards = document.querySelectorAll('.card');
+    const matched = [];
+
+    allCards.forEach(card => {
+      const name = card.dataset.name || '';
+      const desc = card.dataset.desc || '';
+      const category = card.dataset.category || '';
+      if (name.toLowerCase().includes(query) || desc.toLowerCase().includes(query) || category.toLowerCase().includes(query)) {
+        matched.push({ card, name, desc, category });
+      }
+    });
+
+    searchResultsContainer.innerHTML = '';
+
+    if (matched.length === 0) {
+      noResults.style.display = 'block';
+      searchResultsLabel.innerHTML = `Hasil untuk "<span>${this.value}</span>"`;
+    } else {
+      noResults.style.display = 'none';
+      searchResultsLabel.innerHTML = `${matched.length} hasil untuk "<span>${this.value}</span>"`;
+
+      matched.forEach(({ card, name, desc, category }) => {
+        const clone = card.cloneNode(true);
+        const cardBody = clone.querySelector('.card-body');
+        const badge = document.createElement('div');
+        badge.className = 'card-category-badge';
+        badge.textContent = category;
+        cardBody.insertBefore(badge, cardBody.firstChild);
+
+        const nameEl = clone.querySelector('.card-name');
+        if (nameEl) nameEl.innerHTML = highlight(nameEl.textContent, query);
+        const descEl = clone.querySelector('.card-desc');
+        if (descEl) descEl.innerHTML = highlight(descEl.textContent, query);
+
+        searchResultsContainer.appendChild(clone);
+      });
+    }
+  });
+
+  function highlight(text, query) {
+    const regex = new RegExp(`(${query})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  function clearSearch() {
+    searchInput.value = '';
+    searchClear.classList.remove('visible');
+    document.body.classList.remove('searching');
+    searchResultsContainer.innerHTML = '';
+    noResults.style.display = 'none';
   }
 </script>
 
