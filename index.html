@@ -599,8 +599,8 @@
 }
 .price-tag::after {
   content: "Harga bisa berubah sewaktu-waktu\A Cek harga terbaru di Shopee ya! 🛒\A Beli di tanggal kembar lebih murah! 🎉";
-  position: absolute;
-  bottom: calc(100% + 8px);
+  position: fixed;
+  top: auto;
   left: 50%;
   transform: translateX(-50%);
   background: #1a1a1a;
@@ -608,17 +608,27 @@
   color: var(--text);
   font-size: 11.5px;
   font-weight: 400;
-  line-height: 1.5;
-  padding: 8px 12px;
+  line-height: 1.7;
+  padding: 10px 14px;
   border-radius: 10px;
   white-space: pre-wrap;
-  max-width: 220px;
-  width: max-content;
+  width: 200px;
+  text-align: center;
   box-shadow: 0 0 12px #39ff1422;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
-  z-index: 50;
+  z-index: 9998;
+}
+
+.price-tag::before {
+  display: none;
+}
+
+.price-tag:hover::after,
+.price-tag:hover::before {
+  opacity: 1;
+}
 }
 }
 .price-tag::before {
