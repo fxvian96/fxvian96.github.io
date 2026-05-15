@@ -611,12 +611,15 @@
   line-height: 1.5;
   padding: 8px 12px;
   border-radius: 10px;
-  white-space: nowrap;
+  white-space: pre-wrap;
+  max-width: 220px;
+  width: max-content;
   box-shadow: 0 0 12px #39ff1422;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: 50;
+}
 }
 .price-tag::before {
   content: "";
