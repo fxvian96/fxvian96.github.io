@@ -212,6 +212,32 @@
       transform: rotate(-90deg);
     }
 
+/* ── DESKTOP GRID ── */
+@media (min-width: 768px) {
+  main {
+    max-width: 1100px;
+  }
+
+  .section-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .section-group.collapsed {
+    display: none !important;
+  }
+
+  .card {
+    margin-bottom: 0;
+  }
+
+  .floating-panel {
+    bottom: 32px;
+    right: 32px;
+  }
+}
+    
     /* ── COLLAPSIBLE GROUP ── */
     .section-group {
       overflow: hidden;
