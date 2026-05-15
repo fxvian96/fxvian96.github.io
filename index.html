@@ -357,7 +357,6 @@
     }
     .card-img-placeholder .icon { font-size: 36px; }
 
-    /* ── CARD BODY: flex so button sticks to bottom ── */
     .card-body {
       padding: 16px 18px 18px;
       display: flex;
@@ -419,7 +418,6 @@
       flex: 1;
     }
 
-    /* Button always at bottom */
     .card-link {
       display: block;
       text-align: center;
@@ -474,9 +472,151 @@
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
+
+    /* ── WELCOME POPUP ── */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .popup-box {
+      background: #111;
+      border: 1.5px solid #2a2a2a;
+      border-radius: 24px;
+      padding: 32px 28px 28px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 0 40px #39ff1422;
+      animation: slideUp 0.35s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .popup-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid var(--accent);
+      object-fit: cover;
+      box-shadow: 0 0 16px #39ff1444;
+      display: block;
+      margin: 0 auto 16px;
+    }
+
+    .popup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 14px;
+      text-shadow: 0 0 10px #39ff1455;
+    }
+
+    .popup-text {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.75;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .popup-text strong {
+      color: var(--text);
+    }
+
+    .popup-text .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .popup-divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      margin: 0 auto 20px;
+      border-radius: 99px;
+    }
+
+    .popup-question {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .popup-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popup-btn {
+      background: #1a1a1a;
+      border: 1.5px solid #2a2a2a;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .popup-btn:hover {
+      background: var(--accent2);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 12px #39ff1422;
+    }
+
+    .popup-btn:active {
+      transform: scale(0.98);
+    }
   </style>
 </head>
 <body>
+
+<!-- ── WELCOME POPUP ── -->
+<div class="popup-overlay" id="welcomePopup">
+  <div class="popup-box">
+    <img class="popup-avatar" src="logo_approved_github.png" alt="Vian">
+    <div class="popup-title">Halo, aku Vian! 👋</div>
+    <p class="popup-text">
+      Ex <strong>PSK</strong> — <em>Pria Seratus Kilo</em> — dengan puncak berat
+      <span class="highlight">125kg</span>. Sejak 2024 aku mulai serius berubah,
+      dan berhasil turun sampai <span class="highlight">83kg</span>. 💪
+      <br><br>
+      Di sini aku kumpulin semua barang yang <strong>udah aku beli sendiri</strong>
+      dan menurutku layak banget buat direkomendasiin.
+    </p>
+    <div class="popup-divider"></div>
+    <div class="popup-question">Mau liat apa dulu nih? 👀</div>
+    <div class="popup-buttons" id="popupButtons">
+      <!-- Tombol digenerate otomatis dari tabs -->
+    </div>
+  </div>
+</div>
 
 <header>
   <img class="avatar" src="logo_approved_github.png" alt="logo">
@@ -642,6 +782,18 @@
         </div>
       </div>
 
+      <div class="card" data-name="Training Glove - CoreNation" data-desc="Training Glove — Proteksi Tangan & Support Pergelangan Tangan. Nggak cuma pelindung tangan biasa — glove ini juga bisa dipakai buat menguatkan pergelangan tangan saat gerakan push. Bahan cukup oke, telapaknya dilapisi karet anti-slip yang sekaligus mengurangi terbentuknya calluses. Cocok buat latihan gym harian yang lebih nyaman dan aman." data-category="Work Out">
+  <div class="slider" data-images="Training_Glove_CoreNation.webp,Training_Glove_CoreNation_buy.jpeg"></div>
+  <div class="card-body">
+    <div class="card-header">
+      <div class="card-name">Training Glove - CoreNation</div>
+      <div class="price-tag">Rp 110–130K</div>
+    </div>
+    <p class="card-desc">Training Glove — Proteksi Tangan & Support Pergelangan Tangan<br>Nggak cuma pelindung tangan biasa — glove ini juga bisa dipakai buat menguatkan pergelangan tangan saat gerakan push. Bahan cukup oke, telapaknya dilapisi karet anti-slip yang sekaligus mengurangi terbentuknya calluses. 💪<br>Cocok buat latihan gym harian yang lebih nyaman dan aman.</p>
+    <a class="card-link" href="https://s.shopee.co.id/2g80TOereF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+  </div>
+</div>
+      
     </div><!-- end group Etc -->
 
   </div><!-- end section Work Out -->
@@ -833,6 +985,28 @@
 </div>
 
 <script>
+  /* ── WELCOME POPUP: auto-generate buttons from tabs ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('#tabs .tab');
+    const container = document.getElementById('popupButtons');
+
+    tabs.forEach(tab => {
+      const btn = document.createElement('button');
+      btn.className = 'popup-btn';
+      btn.innerHTML = tab.textContent.trim();
+      btn.addEventListener('click', () => {
+        // Close popup
+        const overlay = document.getElementById('welcomePopup');
+        overlay.style.opacity = '0';
+        overlay.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => overlay.remove(), 300);
+        // Trigger the matching tab
+        tab.click();
+      });
+      container.appendChild(btn);
+    });
+  });
+
   /* ── TOGGLE ALL ── */
   let allExpanded = false;
 
@@ -926,7 +1100,6 @@
     nextBtn.onclick = () => { goTo(current + 1); resetTimer(); };
     slider.appendChild(nextBtn);
 
-    /* ── AUTO RESET TO FIRST IMAGE AFTER 6s ── */
     let autoReset;
     function resetTimer() {
       clearTimeout(autoReset);
