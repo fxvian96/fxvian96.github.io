@@ -161,6 +161,7 @@
     body.searching .tabs-wrapper { display: none; }
     body.searching .section { display: none !important; }
     body.searching #search-results { display: block; }
+    body.searching .floating-panel { display: none; }
 
     #search-results { display: none; }
 
@@ -411,6 +412,33 @@
     }
     .card-link:active { transform: scale(0.98); }
 
+    /* ── FLOATING PANEL ── */
+    .floating-panel {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      background: #111;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 99px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #39ff1433;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .float-btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 18px #39ff1466;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -460,7 +488,6 @@
   <!-- ── SECTION: Work Out ── -->
   <div class="section visible" id="section-Work Out">
 
-    <!-- GROUP: Baju -->
     <h2 class="section-title collapsed" onclick="toggleGroup(this)">
       <span></span>Baju
       <div class="toggle-icon">▼</div>
@@ -505,8 +532,7 @@
 
     </div><!-- end group Baju -->
 
-    <!-- GROUP: Celana -->
-   <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
       <span></span>Celana
       <div class="toggle-icon">▼</div>
     </h2>
@@ -531,16 +557,14 @@
             <div class="card-name">Celana Katun - Whittaker</div>
             <div class="price-tag">Rp 120–140K</div>
           </div>
-          <p class="card-desc"Celana dengan bahan katun yang nyaman, bisa dipakai jadi dailyware juga selain olahraga. Karetnya cukup tebal dan masih ada talinya juga.</p>
-          <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1">🛒 Lihat di Shopee</a>
+          <p class="card-desc">Celana dengan bahan katun yang nyaman, bisa dipakai jadi dailyware juga selain olahraga. Karetnya cukup tebal dan masih ada talinya juga.</p>
+          <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-      
     </div><!-- end group Celana -->
 
-
-   <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
       <span></span>Tas
       <div class="toggle-icon">▼</div>
     </h2>
@@ -554,30 +578,12 @@
             <div class="price-tag">Rp 180–220K</div>
           </div>
           <p class="card-desc">Gym Bag udah ada built-in tempat sepatunya. ada 3 mode pemakaian: jinjing, selempang, dan ransel. Compartmentnya juga lumayan banyak sih buat simpan barang2 kecil.</p>
-          <a class="card-link" href="https://s.shopee.co.id/AKXQx1gweF?share_channel_code=1">🛒 Lihat di Shopee</a>
+          <a class="card-link" href="https://s.shopee.co.id/AKXQx1gweF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-    </div><!-- end group Celana -->
+    </div><!-- end group Tas -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   </div><!-- end section Work Out -->
 
   <!-- ── SECTION: Fashion ── -->
@@ -619,7 +625,7 @@
         </div>
       </div>
 
-    </div><!-- end group Fashion -->
+    </div>
 
   </div><!-- end section Fashion -->
 
@@ -725,17 +731,50 @@
 </main>
 
 <footer>
-   Boros ditangan anda sendiri, saya cuman share aja · Link mengandung tautan afiliasi
+  Boros ditangan anda sendiri, saya cuman share aja · Link mengandung tautan afiliasi
 </footer>
 
+<!-- ── FLOATING PANEL ── -->
+<div class="floating-panel">
+  <button class="float-btn" id="toggleAllBtn" onclick="toggleAll()">▼ Show All</button>
+</div>
+
 <script>
-  /* ── COLLAPSE / EXPAND ── */
+  /* ── TOGGLE ALL (1 tombol) ── */
+  let allExpanded = false;
+
+  function toggleAll() {
+    const btn = document.getElementById('toggleAllBtn');
+    if (!allExpanded) {
+      document.querySelectorAll('.section-title.collapsed').forEach(title => {
+        const group = title.nextElementSibling;
+        title.classList.remove('collapsed');
+        group.classList.remove('collapsed');
+        group.style.maxHeight = group.scrollHeight + 'px';
+        setTimeout(() => { group.style.maxHeight = 'none'; }, 350);
+      });
+      btn.textContent = '▲ Hide All';
+      allExpanded = true;
+    } else {
+      document.querySelectorAll('.section-title:not(.collapsed)').forEach(title => {
+        const group = title.nextElementSibling;
+        group.style.maxHeight = group.scrollHeight + 'px';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          group.classList.add('collapsed');
+          title.classList.add('collapsed');
+        }));
+      });
+      btn.textContent = '▼ Show All';
+      allExpanded = false;
+    }
+  }
+
+  /* ── COLLAPSE / EXPAND SINGLE ── */
   function toggleGroup(title) {
     const group = title.nextElementSibling;
     const isOpen = !title.classList.contains('collapsed');
 
     if (isOpen) {
-      /* collapse */
       group.style.maxHeight = group.scrollHeight + 'px';
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -744,7 +783,6 @@
         });
       });
     } else {
-      /* expand */
       title.classList.remove('collapsed');
       group.classList.remove('collapsed');
       group.style.maxHeight = group.scrollHeight + 'px';
@@ -822,6 +860,8 @@
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById('section-' + id).classList.add('visible');
     btn.classList.add('active');
+    allExpanded = false;
+    document.getElementById('toggleAllBtn').textContent = '▼ Show All';
   }
 
   /* ── SEARCH ── */
