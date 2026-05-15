@@ -212,32 +212,19 @@
       transform: rotate(-90deg);
     }
 
-/* ── DESKTOP GRID ── */
-@media (min-width: 768px) {
-  main {
-    max-width: 1100px;
-  }
+    /* ── DESKTOP GRID ── */
+    @media (min-width: 768px) {
+      main { max-width: 1100px; }
+      .section-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .section-group.collapsed { display: none !important; }
+      .card { margin-bottom: 0; }
+      .floating-panel { bottom: 32px; right: 32px; }
+    }
 
-  .section-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .section-group.collapsed {
-    display: none !important;
-  }
-
-  .card {
-    margin-bottom: 0;
-  }
-
-  .floating-panel {
-    bottom: 32px;
-    right: 32px;
-  }
-}
-    
     /* ── COLLAPSIBLE GROUP ── */
     .section-group {
       overflow: hidden;
@@ -520,44 +507,38 @@
     </h2>
     <div class="section-group collapsed">
 
-      <div class="card" data-name="Polo Kancing - Whittaker" data-desc="Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! <br> Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!" data-category="Work Out">
+      <div class="card" data-name="Polo Kancing - Whittaker" data-desc="Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!" data-category="Work Out">
         <div class="slider" data-images="Polo_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Polo Kancing - Whittaker</div>
             <div class="price-tag">Rp 100–130K</div>
           </div>
-          <p class="card-desc">Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! <br> Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!</p>
+          <p class="card-desc">Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! <br>Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!</p>
           <a class="card-link" href="https://s.shopee.co.id/3qJwGskcey?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-      <div class="card" data-name="Polo Resleting - Whittaker" data-desc="Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! <br>
-Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout! <br>
-Praktis banget, nggak perlu beli baju beda untuk tiap olahraga." data-category="Work Out">
+      <div class="card" data-name="Polo Resleting - Whittaker" data-desc="Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout!" data-category="Work Out">
         <div class="slider" data-images="Polo_Whittaker_Luxe.webp,Polo_Whittaker_Buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Polo Resleting - Whittaker</div>
             <div class="price-tag">Rp 100–130K</div>
           </div>
-          <p class="card-desc">Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! <br>
-Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout! <br>
-Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
+          <p class="card-desc">Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! <br>Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout! <br>Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
           <a class="card-link" href="https://s.shopee.co.id/5q50gf3l2K?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-      <div class="card" data-name="T-shirt - Whittaker" data-desc="Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! 🔥
-Praktis banget, nggak perlu beli baju beda untuk tiap olahraga." data-category="Work Out">
+      <div class="card" data-name="T-shirt - Whittaker" data-desc="Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! Praktis banget, nggak perlu beli baju beda untuk tiap olahraga." data-category="Work Out">
         <div class="slider" data-images="tshirt_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">T-shirt - Whittaker</div>
             <div class="price-tag">Rp 90–120K</div>
           </div>
-          <p class="card-desc">Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! 🔥
-Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
+          <p class="card-desc">Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! 🔥<br>Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
           <a class="card-link" href="https://s.shopee.co.id/4AwmhyvfFZ?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
@@ -570,100 +551,87 @@ Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
     </h2>
     <div class="section-group collapsed">
 
-      <div class="card" data-name="Celana Compression 2 in 1 - Terrel" data-desc="Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! 🏃 <br>
-Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!" data-category="Work Out">
+      <div class="card" data-name="Celana Compression 2 in 1 - Terrel" data-desc="Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!" data-category="Work Out">
         <div class="slider" data-images="Compression_Short_Terrel.webp,Compression_Short_Terrel_buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Celana Compression 2 in 1 - Terrel</div>
             <div class="price-tag">Rp 120–140K</div>
           </div>
-          <p class="card-desc">Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! 🏃 <br>
-Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!</p>
+          <p class="card-desc">Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! 🏃 <br>Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!</p>
           <a class="card-link" href="https://s.shopee.co.id/3B4FX4hgBc?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-      <div class="card" data-name="Celana Katun - Whittaker" data-desc="Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. <br>
-Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!" data-category="Work Out">
+      <div class="card" data-name="Celana Katun - Whittaker" data-desc="Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!" data-category="Work Out">
         <div class="slider" data-images="Short_Whittaker.webp,Short_Whittaker_buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Celana Katun - Whittaker</div>
             <div class="price-tag">Rp 120–140K</div>
           </div>
-          <p class="card-desc">Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. <br>
-Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!</p>
+          <p class="card-desc">Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. <br>Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!</p>
           <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
     </div><!-- end group Celana -->
 
-   <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
       <span></span>Sepatu
       <div class="toggle-icon">▼</div>
     </h2>
     <div class="section-group collapsed">
 
-      <div class="card" data-name="Sepatu Gunung - Weidenmann" data-desc="Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! 🏔️
-Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara." data-category="Work Out">
+      <div class="card" data-name="Sepatu Gunung - Weidenmann" data-desc="Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara." data-category="Work Out">
         <div class="slider" data-images="Sepatu_Weidenmann.webp,Sepatu_Weidenmann_buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Sepatu Gunung - Weidenmann</div>
-            <div class="price-tag">Rp 370-420K</div>
+            <div class="price-tag">Rp 370–420K</div>
           </div>
-          <p class="card-desc">Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! 🏔️ <br>
-Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara.</p>
+          <p class="card-desc">Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! 🏔️ <br>Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara.</p>
           <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
     </div><!-- end group Sepatu -->
 
-
-    
-        <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
       <span></span>Etc
       <div class="toggle-icon">▼</div>
     </h2>
     <div class="section-group collapsed">
 
-      <div class="card" data-name="Gym Bag - Troveast" data-desc=" Gym Bag All-in-One — Bawa Semua, Gampang Dibawa! <br>
-Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. <br>
-Satu-satunya catatan: tali selempangnya terlihat kurang kokoh." data-category="Work Out">
+      <div class="card" data-name="Gym Bag - Troveast" data-desc="Gym Bag All-in-One — Bawa Semua, Gampang Dibawa! Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. Satu-satunya catatan: tali selempangnya terlihat kurang kokoh." data-category="Work Out">
         <div class="slider" data-images="Troveast_Gym_Bag.webp,Troveast_Gym_Bag_buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Gym Bag - Troveast</div>
             <div class="price-tag">Rp 180–220K</div>
           </div>
-          <p class="card-desc">Gym Bag All-in-One — Bawa Semua, Gampang Dibawa!<br>
-Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. <br>
-Satu-satunya catatan: tali selempangnya terlihat kurang kokoh.</p>
+          <p class="card-desc">Gym Bag All-in-One — Bawa Semua, Gampang Dibawa!<br>Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. <br>Satu-satunya catatan: tali selempangnya terlihat kurang kokoh.</p>
           <a class="card-link" href="https://s.shopee.co.id/AKXQx1gweF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
-
-      <div class="card" data-name="Kaos Kaki - Tiento" data-desc="Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera. <br>
-Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!" data-category="Work Out">
+      <div class="card" data-name="Kaos Kaki - Tiento" data-desc="Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera. Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!" data-category="Work Out">
         <div class="slider" data-images="Socks_Tiento.webp,Sock_Tiento_buy.jpeg"></div>
         <div class="card-body">
           <div class="card-header">
             <div class="card-name">Kaos Kaki - Tiento</div>
             <div class="price-tag">Rp 60–80K</div>
           </div>
-          <p class="card-desc">Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera.<br>
-Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
-          <a class="card-link" href="https://s.shopee.co.id/1LccQMlsfK?share_channel_code=1">🛒 Lihat di Shopee</a>
+          <p class="card-desc">Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera.<br>Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
+          <a class="card-link" href="https://s.shopee.co.id/1LccQMlsfK?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
+
     </div><!-- end group Etc -->
+
   </div><!-- end section Work Out -->
 
- <!-- ── SECTION: Perlengkapan Diet ── -->
+  <!-- ── SECTION: Perlengkapan Diet ── -->
   <div class="section" id="section-Perlengkapan Diet">
 
     <h2 class="section-title collapsed" onclick="toggleGroup(this)">
@@ -673,52 +641,50 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
     <div class="section-group collapsed">
 
       <div class="card" data-name="Airfryer 2.5L - Advance" data-desc="Mau coba air fryer tapi takut rugi? Ini jawabannya! Fungsinya sudah oke buat masak sehari-hari tanpa harus keluar budget besar. Perlu dicatat: tidak ada pengaturan suhu, hanya timer saja. Hasil masakan juga rada lengket kalo tanpa minyak dan supaya matang merata, makanan perlu dibalik di tengah waktu masak. Tapi untuk harganya? Sangat worth it buat yang baru mau mulai!" data-category="Perlengkapan Diet">
-  <div class="slider" data-images="AirFryer_Advance.webp,AirFryer_Advance_buy.jpeg"></div>
-  <div class="card-body">
-    <div class="card-header">
-      <div class="card-name">Airfryer 2.5L - Advance</div>
-      <div class="price-tag">Rp 200–250K</div>
-    </div>
-    <p class="card-desc">Mau coba air fryer tapi takut rugi? Ini jawabannya! Fungsinya sudah oke buat masak sehari-hari tanpa harus keluar budget besar. ✅ Perlu dicatat: tidak ada pengaturan suhu, hanya timer saja. Hasil masakan juga rada lengket kalo tanpa minyak dan supaya matang merata, makanan perlu dibalik di tengah waktu masak. Tapi untuk harganya? Sangat worth it buat yang baru mau mulai! 💰</p>
-    <a class="card-link" href="https://s.shopee.co.id/8KmNBEy4Is?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
-  </div>
-</div>
+        <div class="slider" data-images="AirFryer_Advance.webp,AirFryer_Advance_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Airfryer 2.5L - Advance</div>
+            <div class="price-tag">Rp 200–250K</div>
+          </div>
+          <p class="card-desc">Mau coba air fryer tapi takut rugi? Ini jawabannya! Fungsinya sudah oke buat masak sehari-hari tanpa harus keluar budget besar. ✅ Perlu dicatat: tidak ada pengaturan suhu, hanya timer saja. Hasil masakan juga rada lengket kalo tanpa minyak dan supaya matang merata, makanan perlu dibalik di tengah waktu masak. Tapi untuk harganya? Sangat worth it buat yang baru mau mulai! 💰</p>
+          <a class="card-link" href="https://s.shopee.co.id/8KmNBEy4Is?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
 
-<div class="card" data-name="Airfryer 4.2L - Philips" data-desc="Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering." data-category="Perlengkapan Diet">
-  <div class="slider" data-images="AirFryer_Philips.webp,AirFryer_Philips_buy.jpeg"></div>
-  <div class="card-body">
-    <div class="card-header">
-      <div class="card-name">Airfryer 4.2L - Philips</div>
-      <div class="price-tag">Rp 800–1100K</div>
-    </div>
-    <p class="card-desc">Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. 🙌 Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering. 💰</p>
-    <a class="card-link" href="https://s.shopee.co.id/9KeuMYRBUH?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
-  </div>
-</div>
+      <div class="card" data-name="Airfryer 4.2L - Philips" data-desc="Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering." data-category="Perlengkapan Diet">
+        <div class="slider" data-images="AirFryer_Philips.webp,AirFryer_Philips_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Airfryer 4.2L - Philips</div>
+            <div class="price-tag">Rp 800–1100K</div>
+          </div>
+          <p class="card-desc">Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. 🙌 Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering. 💰</p>
+          <a class="card-link" href="https://s.shopee.co.id/9KeuMYRBUH?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
 
-<div class="card" data-name="Portable Blender - Ninja" data-desc="Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget!" data-category="Perlengkapan Diet">
-  <div class="slider" data-images="Portable_Blander_Ninja.webp,Portable_Blander_Ninja_buy.jpeg"></div>
-  <div class="card-body">
-    <div class="card-header">
-      <div class="card-name">Portable Blender - Ninja</div>
-      <div class="price-tag">Rp 800–1000K</div>
-    </div>
-    <p class="card-desc">Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. 💪 Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget! Bersihinnya pun gampang, nggak ribet. Cocok banget buat kamu yang aktif dan on-the-go! 🏃‍♂️</p>
-    <a class="card-link" href="https://s.shopee.co.id/AUqrmSTn4k?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
-  </div>
-</div>
+      <div class="card" data-name="Portable Blender - Ninja" data-desc="Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget!" data-category="Perlengkapan Diet">
+        <div class="slider" data-images="Portable_Blander_Ninja.webp,Portable_Blander_Ninja_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Portable Blender - Ninja</div>
+            <div class="price-tag">Rp 800–1000K</div>
+          </div>
+          <p class="card-desc">Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. 💪 Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget! Bersihinnya pun gampang, nggak ribet. Cocok banget buat kamu yang aktif dan on-the-go! 🏃‍♂️</p>
+          <a class="card-link" href="https://s.shopee.co.id/AUqrmSTn4k?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
 
-<div class="card" data-name="Wajan - Cypruz" data-desc="Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua." data-category="Perlengkapan Diet">
-  <div class="slider" data-images="Wajan_Cypruz.webp,Wajan_Cypruz_buy.jpeg"></div>
-  <div class="card-body">
-    <div class="card-header">
-      <div class="card-name">Wajan - Cypruz</div>
-      <div class="price-tag">Rp 110–130K</div>
-    </div>
-    <p class="card-desc">Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. 🥗 Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua.</p>
-    <a class="card-link" href="https://s.shopee.co.id/5flc2I7oCG?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
-  </div>
-</div>
+      <div class="card" data-name="Wajan - Cypruz" data-desc="Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua." data-category="Perlengkapan Diet">
+        <div class="slider" data-images="Wajan_Cypruz.webp,Wajan_Cypruz_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Wajan - Cypruz</div>
+            <div class="price-tag">Rp 110–130K</div>
+          </div>
+          <p class="card-desc">Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. 🥗 Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua.</p>
+          <a class="card-link" href="https://s.shopee.co.id/5flc2I7oCG?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
       </div>
 
@@ -726,8 +692,6 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
 
   </div><!-- end section Perlengkapan Diet -->
 
-
-  
   <!-- ── SECTION: Fashion ── -->
   <div class="section" id="section-Fashion">
 
@@ -771,7 +735,6 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
 
   </div><!-- end section Fashion -->
 
- 
   <!-- ── SECTION: Makanan Enak ── -->
   <div class="section" id="section-Makanan Enak">
 
@@ -855,7 +818,7 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
 </div>
 
 <script>
-  /* ── TOGGLE ALL (1 tombol) ── */
+  /* ── TOGGLE ALL ── */
   let allExpanded = false;
 
   function toggleAll() {
@@ -888,15 +851,12 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
   function toggleGroup(title) {
     const group = title.nextElementSibling;
     const isOpen = !title.classList.contains('collapsed');
-
     if (isOpen) {
       group.style.maxHeight = group.scrollHeight + 'px';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          group.classList.add('collapsed');
-          title.classList.add('collapsed');
-        });
-      });
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        group.classList.add('collapsed');
+        title.classList.add('collapsed');
+      }));
     } else {
       title.classList.remove('collapsed');
       group.classList.remove('collapsed');
@@ -934,7 +894,7 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
     images.forEach((_, i) => {
       const dot = document.createElement('div');
       dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      dot.onclick = () => goTo(i);
+      dot.onclick = () => { goTo(i); resetTimer(); };
       dotsEl.appendChild(dot);
     });
     slider.appendChild(dotsEl);
@@ -942,20 +902,1041 @@ Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
     const prevBtn = document.createElement('button');
     prevBtn.className = 'slider-btn prev hidden';
     prevBtn.innerHTML = '&#8249;';
-    prevBtn.onclick = () => goTo(current - 1);
+    prevBtn.onclick = () => { goTo(current - 1); resetTimer(); };
     slider.appendChild(prevBtn);
 
     const nextBtn = document.createElement('button');
     nextBtn.className = 'slider-btn next';
     nextBtn.innerHTML = '&#8250;';
-    nextBtn.onclick = () => goTo(current + 1);
+    nextBtn.onclick = () => { goTo(current + 1); resetTimer(); };
     slider.appendChild(nextBtn);
 
+    /* ── AUTO RESET TO FIRST IMAGE AFTER 6s ── */
+    let autoReset;
+    function resetTimer() {
+      clearTimeout(autoReset);
+      if (current !== 0) {
+        autoReset = setTimeout(() => goTo(0), 6000);
+      }
+    }
+
+    /* Swipe support */
     let startX = 0;
     slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
     slider.addEventListener('touchend', e => {
       const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
+    });
+
+    function goTo(index) {
+      if (index < 0 || index >= images.length) return;
+      current = index;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      counter.textContent = `${current + 1} / ${images.length}`;
+      dotsEl.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      prevBtn.classList.toggle('hidden', current === 0);
+      nextBtn.classList.toggle('hidden', current === images.length - 1);
+    }
+  });
+
+  /* ── TABS ── */
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('section-' + id).classList.add('visible');
+    btn.classList.add('active');
+    allExpanded = false;
+    document.getElementById('toggleAllBtn').textContent = '▼ Show All';
+  }
+
+  /* ── SEARCH ── */
+  const searchInput = document.getElementById('searchInput');
+  const searchClear = document.getElementById('searchClear');
+  const searchResultsContainer = document.getElementById('searchResultsContainer');
+  const searchResultsLabel = document.getElementById('searchResultsLabel');
+  const noResults = document.getElementById('noResults');
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    searchClear.classList.toggle('visible', query.length > 0);
+    if (query.length === 0) { clearSearch(); return; }
+
+    document.body.classList.add('searching');
+    const matched = [];
+    document.querySelectorAll('.section .card').forEach(card => {
+      const name = card.dataset.name || '';
+      const desc = card.dataset.desc || '';
+      const category = card.dataset.category || '';
+      if (name.toLowerCase().includes(query) || desc.toLowerCase().includes(query) || category.toLowerCase().includes(query)) {
+        matched.push({ card, name, desc, category });
+      }
+    });
+
+    searchResultsContainer.innerHTML = '';
+    if (matched.length === 0) {
+      noResults.style.display = 'block';
+      searchResultsLabel.innerHTML = `Hasil untuk "<span>${this.value}</span>"`;
+    } else {
+      noResults.style.display = 'none';
+      searchResultsLabel.innerHTML = `${matched.length} hasil untuk "<span>${this.value}</span>"`;
+      matched.forEach(({ card, category }) => {
+        const clone = card.cloneNode(true);
+        const cardBody = clone.querySelector('.card-body');
+        const badge = document.createElement('div');
+        badge.className = 'card-category-badge';
+        badge.textContent = category;
+        cardBody.insertBefore(badge, cardBody.firstChild);
+        const nameEl = clone.querySelector('.card-name');
+        if (nameEl) nameEl.innerHTML = highlight(nameEl.textContent, query);
+        const descEl = clone.querySelector('.card-desc');
+        if (descEl) descEl.innerHTML = highlight(descEl.textContent, query);
+        searchResultsContainer.appendChild(clone);
+      });
+    }
+  });
+
+  function highlight(text, query) {
+    return text.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>');
+  }
+
+  function clearSearch() {
+    searchInput.value = '';
+    searchClear.classList.remove('visible');
+    document.body.classList.remove('searching');
+    searchResultsContainer.innerHTML = '';
+    noResults.style.display = 'none';
+  }
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="logo_approved_github.png">
+  <title>Repository Belanja Vian 🛍️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #111111;
+      --accent: #39ff14;
+      --accent2: #1a3d0a;
+      --text: #f0f0f0;
+      --muted: #888888;
+      --tag-bg: #1a1a1a;
+      --border: #222222;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 48px 24px 32px;
+      background: linear-gradient(160deg, #0a0a0a 60%, #0d1a08);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--accent2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 16px;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+      box-shadow: 0 0 18px #39ff1466;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--accent);
+      letter-spacing: -0.3px;
+      text-shadow: 0 0 12px #39ff1455;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 13.5px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrapper {
+      padding: 14px 16px;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #161616;
+      border: 1.5px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 10px 14px;
+      gap: 10px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px #39ff1433;
+    }
+
+    .search-icon { font-size: 16px; flex-shrink: 0; }
+
+    .search-box input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .search-box input::placeholder { color: var(--muted); }
+
+    .search-clear {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      display: none;
+    }
+    .search-clear.visible { display: block; }
+
+    /* ── CATEGORY TABS ── */
+    .tabs-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+
+    .tab {
+      flex-shrink: 0;
+      padding: 7px 16px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1.5px solid #333;
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.2s ease;
+    }
+    .tab.active, .tab:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      box-shadow: 0 0 12px #39ff1466;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    .section { display: none; }
+    .section.visible { display: block; }
+
+    body.searching .tabs-wrapper { display: none; }
+    body.searching .section { display: none !important; }
+    body.searching #search-results { display: block; }
+    body.searching .floating-panel { display: none; }
+
+    #search-results { display: none; }
+
+    .search-results-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .search-results-title span { color: var(--accent); font-weight: 500; }
+
+    .no-results {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .no-results .icon { font-size: 40px; margin-bottom: 12px; }
+
+    /* ── SECTION TITLE with collapse ── */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-title span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 4px;
+      box-shadow: 0 0 6px #39ff14;
+      flex-shrink: 0;
+    }
+    .toggle-icon {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .section-title.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    /* ── DESKTOP GRID ── */
+    @media (min-width: 768px) {
+      main { max-width: 1100px; }
+      .section-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .section-group.collapsed { display: none !important; }
+      .card { margin-bottom: 0; }
+      .floating-panel { bottom: 32px; right: 32px; }
+    }
+
+    /* ── COLLAPSIBLE GROUP ── */
+    .section-group {
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+    .section-group.collapsed {
+      max-height: 0 !important;
+      opacity: 0;
+    }
+
+    /* ── PRODUCT CARD ── */
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid #222;
+      margin-bottom: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px #39ff1422;
+      border-color: #39ff1444;
+    }
+
+    /* ── SLIDER ── */
+    .slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--tag-bg);
+    }
+
+    .slider-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .slider-track img {
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--tag-bg);
+      flex-shrink: 0;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      border: 1px solid #39ff1444;
+      color: var(--accent);
+      font-size: 16px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .slider-btn:hover { background: rgba(57,255,20,0.15); }
+    .slider-btn.prev { left: 10px; }
+    .slider-btn.next { right: 10px; }
+    .slider-btn.hidden { display: none; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .slider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .slider-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    .slider-counter {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 11px;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      display: block;
+      background: var(--tag-bg);
+    }
+
+    .card-img-placeholder {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, #111, #1a2a10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      border-bottom: 1px solid #222;
+    }
+    .card-img-placeholder .icon { font-size: 36px; }
+
+    .card-body { padding: 16px 18px 18px; }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.3;
+      flex: 1;
+      padding-right: 12px;
+      color: var(--text);
+    }
+
+    .card-name mark, .card-desc mark {
+      background: #39ff1433;
+      color: var(--accent);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .price-tag {
+      background: #0d1a08;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+      border: 1px solid #39ff1444;
+    }
+
+    .card-category-badge {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--muted);
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 99px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .card-link {
+      display: block;
+      text-align: center;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px;
+      border-radius: 10px;
+      letter-spacing: 0.2px;
+      transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    }
+    .card-link:hover {
+      background: #55ff33;
+      box-shadow: 0 0 16px #39ff1466;
+    }
+    .card-link:active { transform: scale(0.98); }
+
+    /* ── FLOATING PANEL ── */
+    .floating-panel {
+      position: fixed;
+      bottom: 24px;
+      right: 16px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      background: #111;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 99px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #39ff1433;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .float-btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 18px #39ff1466;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img class="avatar" src="logo_approved_github.png" alt="logo">
+  <h1>fxvian</h1>
+  <p>Repository perbelanjaan online Vian<br/>Semua yang disini udah aku coba dan approved!<br>Kalo mau beli silahkan, siapa tau butuh :D<br>Disarankan beli tanggal kembar biar diskonnya lebih mantap.</p>
+</header>
+
+<div class="search-wrapper">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Cari produk..." autocomplete="off"/>
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+  </div>
+</div>
+
+<div class="tabs-wrapper">
+  <div class="tabs" id="tabs">
+    <button class="tab active" onclick="showSection('Work Out', this)">🏋️ Work Out</button>
+    <button class="tab" onclick="showSection('Perlengkapan Diet', this)">🥗 Perlengkapan Diet</button>
+    <button class="tab" onclick="showSection('Fashion', this)">🧥 Fashion</button>
+    <button class="tab" onclick="showSection('Makanan Enak', this)">🍙 Makanan Enak</button>
+    <button class="tab" onclick="showSection('Skincare', this)">✨ Skincare</button>
+  </div>
+</div>
+
+<main>
+
+  <div id="search-results">
+    <p class="search-results-title" id="searchResultsLabel"></p>
+    <div id="searchResultsContainer"></div>
+    <div class="no-results" id="noResults" style="display:none">
+      <div class="icon">🔦</div>
+      <div>Produk tidak ditemukan</div>
+    </div>
+  </div>
+
+  <!-- ── SECTION: Work Out ── -->
+  <div class="section visible" id="section-Work Out">
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Baju
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Polo Kancing - Whittaker" data-desc="Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!" data-category="Work Out">
+        <div class="slider" data-images="Polo_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Polo Kancing - Whittaker</div>
+            <div class="price-tag">Rp 100–130K</div>
+          </div>
+          <p class="card-desc">Baju Olahraga All-Rounder — Satu Baju untuk Semua Olahraga! <br>Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo kancing yang sporty cocok buat gym, lari, badminton, sampai hangout!</p>
+          <a class="card-link" href="https://s.shopee.co.id/3qJwGskcey?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Polo Resleting - Whittaker" data-desc="Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout!" data-category="Work Out">
+        <div class="slider" data-images="Polo_Whittaker_Luxe.webp,Polo_Whittaker_Buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Polo Resleting - Whittaker</div>
+            <div class="price-tag">Rp 100–130K</div>
+          </div>
+          <p class="card-desc">Kaos Olahraga All-Rounder — Satu Baju untuk Semua Aktivitas! <br>Bahan 80% Nylon + 20% Spandex bikin baju ini super adem, fleksibel, dan tahan bau seharian. Model polo resleting yang sporty cocok buat gym, lari, badminton, sampai hangout! <br>Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
+          <a class="card-link" href="https://s.shopee.co.id/5q50gf3l2K?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="T-shirt - Whittaker" data-desc="Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! Praktis banget, nggak perlu beli baju beda untuk tiap olahraga." data-category="Work Out">
+        <div class="slider" data-images="tshirt_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">T-shirt - Whittaker</div>
+            <div class="price-tag">Rp 90–120K</div>
+          </div>
+          <p class="card-desc">Bahan 80% Nylon + 20% Spandex bikin kaos ini super adem, fleksibel, dan tahan bau seharian. Model T-shirt simpel yang cocok buat gym, lari, badminton, sampai aktivitas harian! 🔥<br>Praktis banget, nggak perlu beli baju beda untuk tiap olahraga.</p>
+          <a class="card-link" href="https://s.shopee.co.id/4AwmhyvfFZ?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div><!-- end group Baju -->
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Celana
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Celana Compression 2 in 1 - Terrel" data-desc="Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!" data-category="Work Out">
+        <div class="slider" data-images="Compression_Short_Terrel.webp,Compression_Short_Terrel_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Celana Compression 2 in 1 - Terrel</div>
+            <div class="price-tag">Rp 120–140K</div>
+          </div>
+          <p class="card-desc">Outer sporty + inner compression yang mencegah lecet saat aktivitas intens. Yang paling keren, inner-nya punya kantong HP di sisi kanan — jadi lari pun tetap praktis tanpa gangguan! 🏃 <br>Dilengkapi kantong belakang dan gantungan kunci di depan. Cocok untuk semua olahraga!</p>
+          <a class="card-link" href="https://s.shopee.co.id/3B4FX4hgBc?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Celana Katun - Whittaker" data-desc="Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!" data-category="Work Out">
+        <div class="slider" data-images="Short_Whittaker.webp,Short_Whittaker_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Celana Katun - Whittaker</div>
+            <div class="price-tag">Rp 120–140K</div>
+          </div>
+          <p class="card-desc">Bahan katun yang lembut dan breathable bikin celana ini nyaman dipakai seharian, nggak cuma pas olahraga aja. Karet pinggang tebal ditambah tali pengencang jadi jaminan nggak melorot meski lagi gerak aktif. <br>Simpel, kasual, dan cocok langsung dipakai keluar tanpa harus ganti baju!</p>
+          <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div><!-- end group Celana -->
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Sepatu
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Sepatu Gunung - Weidenmann" data-desc="Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara." data-category="Work Out">
+        <div class="slider" data-images="Sepatu_Weidenmann.webp,Sepatu_Weidenmann_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Sepatu Gunung - Weidenmann</div>
+            <div class="price-tag">Rp 370–420K</div>
+          </div>
+          <p class="card-desc">Brand lokal yang nggak kalah sama merk luar! Grip-nya mantap buat trekking, anti licin di berbagai medan. Sol tebal bikin kaki tetap nyaman bahkan di jalur berbatu sekalipun — sudah terbukti lulus trek Cisadon! 🏔️ <br>Harganya pun jauh lebih terjangkau dibanding merk lain dengan kualitas setara.</p>
+          <a class="card-link" href="https://s.shopee.co.id/3B4GTHARpW?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div><!-- end group Sepatu -->
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Etc
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Gym Bag - Troveast" data-desc="Gym Bag All-in-One — Bawa Semua, Gampang Dibawa! Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. Satu-satunya catatan: tali selempangnya terlihat kurang kokoh." data-category="Work Out">
+        <div class="slider" data-images="Troveast_Gym_Bag.webp,Troveast_Gym_Bag_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Gym Bag - Troveast</div>
+            <div class="price-tag">Rp 180–220K</div>
+          </div>
+          <p class="card-desc">Gym Bag All-in-One — Bawa Semua, Gampang Dibawa!<br>Nggak perlu tas tambahan — sudah ada compartment khusus sepatu bawaan. Bisa dijinjing, diselempang, atau dijadikan ransel sesuai kebutuhan. Kompartemen yang banyak juga bikin barang-barang kecil tetap rapi dan mudah dicari. <br>Satu-satunya catatan: tali selempangnya terlihat kurang kokoh.</p>
+          <a class="card-link" href="https://s.shopee.co.id/AKXQx1gweF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Kaos Kaki - Tiento" data-desc="Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera. Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!" data-category="Work Out">
+        <div class="slider" data-images="Socks_Tiento.webp,Sock_Tiento_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Kaos Kaki - Tiento</div>
+            <div class="price-tag">Rp 60–80K</div>
+          </div>
+          <p class="card-desc">Tebal tapi tetap adem — bahan premium-nya bikin kaki nyaman sepanjang sesi olahraga tanpa gerah. Ditambah fitur Compression yang membantu menopang otot dan mengurangi risiko cedera.<br>Cocok untuk semua olahraga, tapi jadi teman terbaik para runner!</p>
+          <a class="card-link" href="https://s.shopee.co.id/1LccQMlsfK?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div><!-- end group Etc -->
+
+  </div><!-- end section Work Out -->
+
+  <!-- ── SECTION: Perlengkapan Diet ── -->
+  <div class="section" id="section-Perlengkapan Diet">
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Perlengkapan Diet
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Airfryer 2.5L - Advance" data-desc="Mau coba air fryer tapi takut rugi? Ini jawabannya! Fungsinya sudah oke buat masak sehari-hari tanpa harus keluar budget besar. Perlu dicatat: tidak ada pengaturan suhu, hanya timer saja. Hasil masakan juga rada lengket kalo tanpa minyak dan supaya matang merata, makanan perlu dibalik di tengah waktu masak. Tapi untuk harganya? Sangat worth it buat yang baru mau mulai!" data-category="Perlengkapan Diet">
+        <div class="slider" data-images="AirFryer_Advance.webp,AirFryer_Advance_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Airfryer 2.5L - Advance</div>
+            <div class="price-tag">Rp 200–250K</div>
+          </div>
+          <p class="card-desc">Mau coba air fryer tapi takut rugi? Ini jawabannya! Fungsinya sudah oke buat masak sehari-hari tanpa harus keluar budget besar. ✅ Perlu dicatat: tidak ada pengaturan suhu, hanya timer saja. Hasil masakan juga rada lengket kalo tanpa minyak dan supaya matang merata, makanan perlu dibalik di tengah waktu masak. Tapi untuk harganya? Sangat worth it buat yang baru mau mulai! 💰</p>
+          <a class="card-link" href="https://s.shopee.co.id/8KmNBEy4Is?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Airfryer 4.2L - Philips" data-desc="Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering." data-category="Perlengkapan Diet">
+        <div class="slider" data-images="AirFryer_Philips.webp,AirFryer_Philips_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Airfryer 4.2L - Philips</div>
+            <div class="price-tag">Rp 800–1100K</div>
+          </div>
+          <p class="card-desc">Kalau budget ada lebih, ini pilihan yang jauh lebih oke! Kapasitas lebih besar, tapi konsumsi daya justru lebih kecil. Matangnya pun merata tanpa perlu repot bolak-balik makanan. 🙌 Bonusnya, lapisannya anti lengket jadi bersihinnya gampang banget! Investasi yang worth it buat yang masak lebih sering. 💰</p>
+          <a class="card-link" href="https://s.shopee.co.id/9KeuMYRBUH?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Portable Blender - Ninja" data-desc="Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget!" data-category="Perlengkapan Diet">
+        <div class="slider" data-images="Portable_Blander_Ninja.webp,Portable_Blander_Ninja_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Portable Blender - Ninja</div>
+            <div class="price-tag">Rp 800–1000K</div>
+          </div>
+          <p class="card-desc">Portable Blender on-the-go. Bosen minum protein shake polos? Tinggal campur buah favorit dan blend langsung! Cukup kuat buat hancurin buah beku dan es batu sekalipun. 💪 Dilengkapi penutup terpisah untuk mesin dan gelas — jadi habis blend di rumah, tinggal bawa gelasnya aja keluar. Praktis banget! Bersihinnya pun gampang, nggak ribet. Cocok banget buat kamu yang aktif dan on-the-go! 🏃‍♂️</p>
+          <a class="card-link" href="https://s.shopee.co.id/AUqrmSTn4k?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Wajan - Cypruz" data-desc="Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua." data-category="Perlengkapan Diet">
+        <div class="slider" data-images="Wajan_Cypruz.webp,Wajan_Cypruz_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Wajan - Cypruz</div>
+            <div class="price-tag">Rp 110–130K</div>
+          </div>
+          <p class="card-desc">Wajan anti lengket, gak perlu minyak tapi makanan tetap nggak nempel. 🥗 Bahan wajannya memang nggak terlalu tebal, tapi performa masih oke untuk pemakaian sehari-hari. Ukuran 20cm pas banget buat masak 1-2 porsi — ideal untuk yang masak sendiri atau berdua.</p>
+          <a class="card-link" href="https://s.shopee.co.id/5flc2I7oCG?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end section Perlengkapan Diet -->
+
+  <!-- ── SECTION: Fashion ── -->
+  <div class="section" id="section-Fashion">
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Fashion
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Oversized Tee Cotton Combed 30s" data-desc="Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali." data-category="Fashion">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Oversized Tee Cotton Combed 30s</div>
+            <div class="price-tag">Rp 60–90K</div>
+          </div>
+          <p class="card-desc">Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Celana Cargo Wanita" data-desc="Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos." data-category="Fashion">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Celana Cargo Wanita</div>
+            <div class="price-tag">Rp 120–180K</div>
+          </div>
+          <p class="card-desc">Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end section Fashion -->
+
+  <!-- ── SECTION: Makanan Enak ── -->
+  <div class="section" id="section-Makanan Enak">
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Makanan Enak
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Granola Oat Homemade" data-desc="Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!" data-category="Makanan Enak">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Granola Oat Homemade</div>
+            <div class="price-tag">Rp 35–55K</div>
+          </div>
+          <p class="card-desc">Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+      <div class="card" data-name="Protein Bar Lokal" data-desc="Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond." data-category="Makanan Enak">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Protein Bar Lokal</div>
+            <div class="price-tag">Rp 25–40K/pcs</div>
+          </div>
+          <p class="card-desc">Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end section Makanan Enak -->
+
+  <!-- ── SECTION: Skincare ── -->
+  <div class="section" id="section-Skincare">
+
+    <h2 class="section-title collapsed" onclick="toggleGroup(this)">
+      <span></span>Skincare
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group collapsed">
+
+      <div class="card" data-name="Nama Produk Skincare" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Skincare">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Nama Produk</div>
+            <div class="price-tag">Rp 0–0K</div>
+          </div>
+          <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end section Skincare -->
+
+</main>
+
+<footer>
+  Boros ditangan anda sendiri, saya cuman share aja. <br> Link mengandung tautan afiliasi
+</footer>
+
+<!-- ── FLOATING PANEL ── -->
+<div class="floating-panel">
+  <button class="float-btn" id="toggleAllBtn" onclick="toggleAll()">▼ Show All</button>
+</div>
+
+<script>
+  /* ── TOGGLE ALL ── */
+  let allExpanded = false;
+
+  function toggleAll() {
+    const btn = document.getElementById('toggleAllBtn');
+    if (!allExpanded) {
+      document.querySelectorAll('.section-title.collapsed').forEach(title => {
+        const group = title.nextElementSibling;
+        title.classList.remove('collapsed');
+        group.classList.remove('collapsed');
+        group.style.maxHeight = group.scrollHeight + 'px';
+        setTimeout(() => { group.style.maxHeight = 'none'; }, 350);
+      });
+      btn.textContent = '▲ Hide All';
+      allExpanded = true;
+    } else {
+      document.querySelectorAll('.section-title:not(.collapsed)').forEach(title => {
+        const group = title.nextElementSibling;
+        group.style.maxHeight = group.scrollHeight + 'px';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          group.classList.add('collapsed');
+          title.classList.add('collapsed');
+        }));
+      });
+      btn.textContent = '▼ Show All';
+      allExpanded = false;
+    }
+  }
+
+  /* ── COLLAPSE / EXPAND SINGLE ── */
+  function toggleGroup(title) {
+    const group = title.nextElementSibling;
+    const isOpen = !title.classList.contains('collapsed');
+    if (isOpen) {
+      group.style.maxHeight = group.scrollHeight + 'px';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        group.classList.add('collapsed');
+        title.classList.add('collapsed');
+      }));
+    } else {
+      title.classList.remove('collapsed');
+      group.classList.remove('collapsed');
+      group.style.maxHeight = group.scrollHeight + 'px';
+      setTimeout(() => { group.style.maxHeight = 'none'; }, 350);
+    }
+  }
+
+  /* ── INIT SLIDERS ── */
+  document.querySelectorAll('.slider[data-images]').forEach(slider => {
+    const images = slider.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
+    if (images.length === 0) return;
+
+    let current = 0;
+
+    const track = document.createElement('div');
+    track.className = 'slider-track';
+    images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      track.appendChild(img);
+    });
+    slider.appendChild(track);
+
+    if (images.length === 1) return;
+
+    const counter = document.createElement('div');
+    counter.className = 'slider-counter';
+    counter.textContent = `1 / ${images.length}`;
+    slider.appendChild(counter);
+
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'slider-dots';
+    images.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => { goTo(i); resetTimer(); };
+      dotsEl.appendChild(dot);
+    });
+    slider.appendChild(dotsEl);
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'slider-btn prev hidden';
+    prevBtn.innerHTML = '&#8249;';
+    prevBtn.onclick = () => { goTo(current - 1); resetTimer(); };
+    slider.appendChild(prevBtn);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'slider-btn next';
+    nextBtn.innerHTML = '&#8250;';
+    nextBtn.onclick = () => { goTo(current + 1); resetTimer(); };
+    slider.appendChild(nextBtn);
+
+    /* ── AUTO RESET TO FIRST IMAGE AFTER 6s ── */
+    let autoReset;
+    function resetTimer() {
+      clearTimeout(autoReset);
+      if (current !== 0) {
+        autoReset = setTimeout(() => goTo(0), 6000);
+      }
+    }
+
+    /* Swipe support */
+    let startX = 0;
+    slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetTimer(); }
     });
 
     function goTo(index) {
