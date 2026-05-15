@@ -179,6 +179,7 @@
     }
     .no-results .icon { font-size: 40px; margin-bottom: 12px; }
 
+    /* ── SECTION TITLE with collapse ── */
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
@@ -187,6 +188,8 @@
       align-items: center;
       gap: 8px;
       color: var(--text);
+      cursor: pointer;
+      user-select: none;
     }
     .section-title span {
       display: inline-block;
@@ -195,6 +198,28 @@
       background: var(--accent);
       margin-right: 4px;
       box-shadow: 0 0 6px #39ff14;
+      flex-shrink: 0;
+    }
+    .toggle-icon {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .section-title.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    /* ── COLLAPSIBLE GROUP ── */
+    .section-group {
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+    .section-group.collapsed {
+      max-height: 0 !important;
+      opacity: 0;
     }
 
     /* ── PRODUCT CARD ── */
@@ -237,7 +262,6 @@
       flex-shrink: 0;
     }
 
-    /* Prev / Next buttons */
     .slider-btn {
       position: absolute;
       top: 50%;
@@ -259,7 +283,6 @@
     .slider-btn.next { right: 10px; }
     .slider-btn.hidden { display: none; }
 
-    /* Dot indicators */
     .slider-dots {
       position: absolute;
       bottom: 8px;
@@ -280,7 +303,6 @@
       transform: scale(1.3);
     }
 
-    /* Counter */
     .slider-counter {
       position: absolute;
       top: 8px;
@@ -292,7 +314,6 @@
       border-radius: 99px;
     }
 
-    /* Single image (no slider needed) */
     .card-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -404,7 +425,7 @@
 <header>
   <img class="avatar" src="logo_approved_github.png" alt="logo">
   <h1>fxvian</h1>
-  <p>Repository perbelanjaan online Vian<br/>Semua yang disini udah aku coba dan approved!<br>Kalo mau beli silahkan, siapa tau butuh :D<br> Disarankan beli  tanggal kembar biar diskonnya lebih mantap.</p>
+  <p>Repository perbelanjaan online Vian<br/>Semua yang disini udah aku coba dan approved!<br>Kalo mau beli silahkan, siapa tau butuh :D<br>Disarankan beli tanggal kembar biar diskonnya lebih mantap.</p>
 </header>
 
 <div class="search-wrapper">
@@ -438,180 +459,216 @@
 
   <!-- ── SECTION: Work Out ── -->
   <div class="section visible" id="section-Work Out">
-    <h2 class="section-title"><span></span>Baju</h2>
 
-    <!--
-      CARA PAKAI SLIDER:
-      Ganti <img class="card-img"> dengan <div class="slider" data-images="foto1.jpg,foto2.jpg,foto3.jpg">
-      Pisahkan nama file foto dengan koma, tanpa spasi.
-      Contoh di bawah: Baju Polo pakai 2 foto.
-    -->
+    <!-- GROUP: Baju -->
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Baju
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
 
-    <div class="card" data-name="Polo Kancing - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo kancing. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
-      <!-- SLIDER: isi data-images dengan nama file foto dipisah koma -->
-      <div class="slider" data-images="Polo_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Polo Kancing - Whittaker</div>
-          <div class="price-tag">Rp 100–130K</div>
+      <div class="card" data-name="Polo Kancing - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo kancing. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
+        <div class="slider" data-images="Polo_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Polo Kancing - Whittaker</div>
+            <div class="price-tag">Rp 100–130K</div>
+          </div>
+          <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo kancing. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
+          <a class="card-link" href="https://s.shopee.co.id/3qJwGskcey?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
-        <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo kancing. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
-        <a class="card-link" href="https://s.shopee.co.id/3qJwGskcey?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
       </div>
-    </div>
 
-    <!-- Produk dengan 1 foto biasa (tidak pakai slider) -->
-    <div class="card" data-name="Polo Resleting - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo resleting. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
+      <div class="card" data-name="Polo Resleting - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo resleting. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
         <div class="slider" data-images="Polo_Whittaker_Luxe.webp,Polo_Whittaker_Buy.jpeg"></div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Polo Resleting - Whittaker</div>
-          <div class="price-tag">Rp 100–130K</div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Polo Resleting - Whittaker</div>
+            <div class="price-tag">Rp 100–130K</div>
+          </div>
+          <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo resleting. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
+          <a class="card-link" href="https://s.shopee.co.id/5q50gf3l2K?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
-        <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya polo resleting. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
-        <a class="card-link" href="https://s.shopee.co.id/5q50gf3l2K?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
       </div>
-    </div>
-    
-<!-- Produk dengan 1 foto biasa (tidak pakai slider) -->
-    <div class="card" data-name="T-shirt - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya T-shirt. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
-      <div class="slider" data-images="tshirt_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">T-shirt - Whittaker</div>
-          <div class="price-tag">Rp 90–120K</div>
+
+      <div class="card" data-name="T-shirt - Whittaker" data-desc="Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya T-shirt. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon." data-category="Work Out">
+        <div class="slider" data-images="tshirt_Whittaker.webp,Polo_Whittaker_Buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">T-shirt - Whittaker</div>
+            <div class="price-tag">Rp 90–120K</div>
+          </div>
+          <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya T-shirt. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
+          <a class="card-link" href="https://s.shopee.co.id/4AwmhyvfFZ?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
-        <p class="card-desc">Baju Olahraga All-Rounder(dipake semua olahraga), model bajunya T-shirt. Yang paling penting adem dan bajunya ga gampang bau. Bahan 20% Spandex 80% Nylon.</p>
-        <a class="card-link" href="https://s.shopee.co.id/4AwmhyvfFZ?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
       </div>
-    </div>
 
+    </div><!-- end group Baju -->
 
-        <div class="card" data-name="Celana Compression 2 in 1 - Terrel" data-desc="Celana 2 in 1, inner compression bantu buat tahan gesekan jadi ga gampang lecet. Paling okenya dibagian inner compression bagian kanan ada tempat untuk HP jadi ga ganggu ketika lari. Cocok untuk semua olahraga, ada kantong juga dibagian belakang dan gantungan untuk kunci dibagian depan celananya." data-category="Work Out">
-      <div class="slider" data-images="Compression_Short_Terrel.webp,Compression_Short_Terrel_buy.jpeg"></div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Celana Compression 2 in 1 - Terrel</div>
-          <div class="price-tag">Rp 120–140K</div>
+    <!-- GROUP: Celana -->
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Celana
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
+
+      <div class="card" data-name="Celana Compression 2 in 1 - Terrel" data-desc="Celana 2 in 1, inner compression bantu buat tahan gesekan jadi ga gampang lecet. Paling okenya dibagian inner compression bagian kanan ada tempat untuk HP jadi ga ganggu ketika lari. Cocok untuk semua olahraga, ada kantong juga dibagian belakang dan gantungan untuk kunci dibagian depan celananya." data-category="Work Out">
+        <div class="slider" data-images="Compression_Short_Terrel.webp,Compression_Short_Terrel_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Celana Compression 2 in 1 - Terrel</div>
+            <div class="price-tag">Rp 120–140K</div>
+          </div>
+          <p class="card-desc">Celana 2 in 1, inner compression bantu buat tahan gesekan jadi ga gampang lecet. Paling okenya dibagian inner compression bagian kanan ada tempat untuk HP jadi ga ganggu ketika lari. Cocok untuk semua olahraga, ada kantong juga dibagian belakang dan gantungan untuk kunci dibagian depan celananya.</p>
+          <a class="card-link" href="https://s.shopee.co.id/3B4FX4hgBc?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
         </div>
-        <p class="card-desc">Celana 2 in 1, inner compression bantu buat tahan gesekan jadi ga gampang lecet. Paling okenya dibagian inner compression bagian kanan ada tempat untuk HP jadi ga ganggu ketika lari. Cocok untuk semua olahraga, ada kantong juga dibagian belakang dan gantungan untuk kunci dibagian depan celananya.</p>
-        <a class="card-link" href="https://s.shopee.co.id/3B4FX4hgBc?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
       </div>
-    </div>
 
+    </div><!-- end group Celana -->
 
-    
-  </div>
+  </div><!-- end section Work Out -->
 
   <!-- ── SECTION: Fashion ── -->
   <div class="section" id="section-Fashion">
-    <h2 class="section-title"><span></span>Fashion</h2>
 
-    <div class="card" data-name="Oversized Tee Cotton Combed 30s" data-desc="Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali." data-category="Fashion">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Oversized Tee Cotton Combed 30s</div>
-          <div class="price-tag">Rp 60–90K</div>
-        </div>
-        <p class="card-desc">Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali.</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
-      </div>
-    </div>
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Fashion
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
 
-    <div class="card" data-name="Celana Cargo Wanita" data-desc="Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos." data-category="Fashion">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Celana Cargo Wanita</div>
-          <div class="price-tag">Rp 120–180K</div>
+      <div class="card" data-name="Oversized Tee Cotton Combed 30s" data-desc="Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali." data-category="Fashion">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
         </div>
-        <p class="card-desc">Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos.</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Oversized Tee Cotton Combed 30s</div>
+            <div class="price-tag">Rp 60–90K</div>
+          </div>
+          <p class="card-desc">Bahan adem, cocok buat harian. Aku pake size M tinggi 160cm, udah pas banget oversize-nya. Warna nggak pudar setelah dicuci berkali-kali.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
       </div>
-    </div>
-  </div>
+
+      <div class="card" data-name="Celana Cargo Wanita" data-desc="Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos." data-category="Fashion">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Celana Cargo Wanita</div>
+            <div class="price-tag">Rp 120–180K</div>
+          </div>
+          <p class="card-desc">Kantongnya beneran bisa dipakai! Bahan tebal tapi tetap nyaman. Cocok dipadu sama tanktop atau kaos polos.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
+    </div><!-- end group Fashion -->
+
+  </div><!-- end section Fashion -->
 
   <!-- ── SECTION: Perlengkapan Diet ── -->
   <div class="section" id="section-Perlengkapan Diet">
-    <h2 class="section-title"><span></span>Perlengkapan Diet</h2>
 
-    <div class="card" data-name="Nama Produk" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Perlengkapan Diet">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Nama Produk</div>
-          <div class="price-tag">Rp 0–0K</div>
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Perlengkapan Diet
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
+
+      <div class="card" data-name="Nama Produk" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Perlengkapan Diet">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
         </div>
-        <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Nama Produk</div>
+            <div class="price-tag">Rp 0–0K</div>
+          </div>
+          <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
       </div>
+
     </div>
-  </div>
+
+  </div><!-- end section Perlengkapan Diet -->
 
   <!-- ── SECTION: Makanan Enak ── -->
   <div class="section" id="section-Makanan Enak">
-    <h2 class="section-title"><span></span>Makanan Enak</h2>
 
-    <div class="card" data-name="Granola Oat Homemade" data-desc="Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!" data-category="Makanan Enak">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Granola Oat Homemade</div>
-          <div class="price-tag">Rp 35–55K</div>
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Makanan Enak
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
+
+      <div class="card" data-name="Granola Oat Homemade" data-desc="Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!" data-category="Makanan Enak">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
         </div>
-        <p class="card-desc">Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Granola Oat Homemade</div>
+            <div class="price-tag">Rp 35–55K</div>
+          </div>
+          <p class="card-desc">Manis alami, nggak pakai gula berlebih. Enak buat sarapan dicampur yogurt. Aku beli yang rasa coklat kacang, udah repeat order 3x!</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
       </div>
+
+      <div class="card" data-name="Protein Bar Lokal" data-desc="Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond." data-category="Makanan Enak">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Protein Bar Lokal</div>
+            <div class="price-tag">Rp 25–40K/pcs</div>
+          </div>
+          <p class="card-desc">Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
     </div>
 
-    <div class="card" data-name="Protein Bar Lokal" data-desc="Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond." data-category="Makanan Enak">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Protein Bar Lokal</div>
-          <div class="price-tag">Rp 25–40K/pcs</div>
-        </div>
-        <p class="card-desc">Snack sehat yang ngenyangin. Kadar proteinnya lumayan buat post-workout. Rasa paling enak menurut aku: Peanut Butter & Choco Almond.</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
-      </div>
-    </div>
-  </div>
+  </div><!-- end section Makanan Enak -->
 
   <!-- ── SECTION: Skincare ── -->
   <div class="section" id="section-Skincare">
-    <h2 class="section-title"><span></span>Skincare</h2>
 
-    <div class="card" data-name="Nama Produk Skincare" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Skincare">
-      <div class="card-img-placeholder">
-        <div class="icon">📸</div>
-        <div>Ganti dengan screenshot bukti beli</div>
-      </div>
-      <div class="card-body">
-        <div class="card-header">
-          <div class="card-name">Nama Produk</div>
-          <div class="price-tag">Rp 0–0K</div>
+    <h2 class="section-title" onclick="toggleGroup(this)">
+      <span></span>Skincare
+      <div class="toggle-icon">▼</div>
+    </h2>
+    <div class="section-group">
+
+      <div class="card" data-name="Nama Produk Skincare" data-desc="Tulis review/deskripsi produk kamu di sini." data-category="Skincare">
+        <div class="card-img-placeholder">
+          <div class="icon">📸</div>
+          <div>Ganti dengan screenshot bukti beli</div>
         </div>
-        <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
-        <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Nama Produk</div>
+            <div class="price-tag">Rp 0–0K</div>
+          </div>
+          <p class="card-desc">Tulis review/deskripsi produk kamu di sini.</p>
+          <a class="card-link" href="LINK_AFFILIATE_KAMU_DI_SINI" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
       </div>
+
     </div>
-  </div>
+
+  </div><!-- end section Skincare -->
 
 </main>
 
@@ -620,6 +677,29 @@
 </footer>
 
 <script>
+  /* ── COLLAPSE / EXPAND ── */
+  function toggleGroup(title) {
+    const group = title.nextElementSibling;
+    const isOpen = !title.classList.contains('collapsed');
+
+    if (isOpen) {
+      /* collapse */
+      group.style.maxHeight = group.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          group.classList.add('collapsed');
+          title.classList.add('collapsed');
+        });
+      });
+    } else {
+      /* expand */
+      title.classList.remove('collapsed');
+      group.classList.remove('collapsed');
+      group.style.maxHeight = group.scrollHeight + 'px';
+      setTimeout(() => { group.style.maxHeight = 'none'; }, 350);
+    }
+  }
+
   /* ── INIT SLIDERS ── */
   document.querySelectorAll('.slider[data-images]').forEach(slider => {
     const images = slider.dataset.images.split(',').map(s => s.trim()).filter(Boolean);
@@ -627,7 +707,6 @@
 
     let current = 0;
 
-    /* Build track */
     const track = document.createElement('div');
     track.className = 'slider-track';
     images.forEach(src => {
@@ -638,15 +717,13 @@
     });
     slider.appendChild(track);
 
-    if (images.length === 1) return; /* single image, no controls needed */
+    if (images.length === 1) return;
 
-    /* Counter */
     const counter = document.createElement('div');
     counter.className = 'slider-counter';
     counter.textContent = `1 / ${images.length}`;
     slider.appendChild(counter);
 
-    /* Dots */
     const dotsEl = document.createElement('div');
     dotsEl.className = 'slider-dots';
     images.forEach((_, i) => {
@@ -657,7 +734,6 @@
     });
     slider.appendChild(dotsEl);
 
-    /* Prev / Next */
     const prevBtn = document.createElement('button');
     prevBtn.className = 'slider-btn prev hidden';
     prevBtn.innerHTML = '&#8249;';
@@ -670,7 +746,6 @@
     nextBtn.onclick = () => goTo(current + 1);
     slider.appendChild(nextBtn);
 
-    /* Swipe support */
     let startX = 0;
     slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
     slider.addEventListener('touchend', e => {
