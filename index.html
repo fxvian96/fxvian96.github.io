@@ -388,6 +388,7 @@
       padding: 0 2px;
     }
 
+    /* ── PRICE TAG ── */
     .price-tag {
       background: #0d1a08;
       color: var(--accent);
@@ -397,7 +398,31 @@
       border-radius: 99px;
       white-space: nowrap;
       border: 1px solid #39ff1444;
+      cursor: pointer;
+      user-select: none;
     }
+
+    /* ── TOOLTIP (via JS) ── */
+    .price-tooltip {
+      position: fixed;
+      background: #1a1a1a;
+      border: 1px solid #39ff1444;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.7;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 16px #39ff1422;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 9998;
+      width: 200px;
+      transform: translateX(-50%);
+    }
+    .price-tooltip.visible { opacity: 1; }
 
     .card-category-badge {
       display: inline-block;
@@ -535,9 +560,7 @@
       margin-bottom: 24px;
     }
 
-    .popup-text strong {
-      color: var(--text);
-    }
+    .popup-text strong { color: var(--text); }
 
     .popup-text .highlight {
       color: var(--accent);
@@ -590,67 +613,17 @@
       box-shadow: 0 0 12px #39ff1422;
     }
 
-    .popup-btn:active {
-      transform: scale(0.98);
-    }
-  /* ── TOOLTIP HARGA ── */
-.price-tag {
-  position: relative;
-}
-.price-tag::after {
-  content: "Harga bisa berubah sewaktu-waktu\A Cek harga terbaru di Shopee ya! 🛒\A Beli di tanggal kembar lebih murah! 🎉";
-  position: fixed;
-  top: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1a1a1a;
-  border: 1px solid #39ff1444;
-  color: var(--text);
-  font-size: 11.5px;
-  font-weight: 400;
-  line-height: 1.7;
-  padding: 10px 14px;
-  border-radius: 10px;
-  white-space: pre-wrap;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 0 12px #39ff1422;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 9998;
-}
-
-.price-tag::before {
-  display: none;
-}
-
-.price-tag:hover::after,
-.price-tag:hover::before {
-  opacity: 1;
-}
-}
-}
-.price-tag::before {
-  content: "";
-  position: absolute;
-  bottom: calc(100% + 2px);
-  left: 50%;
-  transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: #39ff1444;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 50;
-}
-.price-tag:hover::after,
-.price-tag:hover::before {
-  opacity: 1;
-}
+    .popup-btn:active { transform: scale(0.98); }
   </style>
 </head>
 <body>
+
+<!-- ── TOOLTIP (single, reused) ── -->
+<div class="price-tooltip" id="priceTooltip">
+  Harga bisa berubah sewaktu-waktu<br>
+  Cek harga terbaru di Shopee ya! 🛒<br>
+  Beli di tanggal kembar lebih murah! 🎉
+</div>
 
 <!-- ── WELCOME POPUP ── -->
 <div class="popup-overlay" id="welcomePopup">
@@ -670,9 +643,7 @@
     </p>
     <div class="popup-divider"></div>
     <div class="popup-question">Mau liat apa dulu nih? 👀</div>
-    <div class="popup-buttons" id="popupButtons">
-      <!-- Tombol digenerate otomatis dari tabs -->
-    </div>
+    <div class="popup-buttons" id="popupButtons"></div>
   </div>
 </div>
 
@@ -841,17 +812,17 @@
       </div>
 
       <div class="card" data-name="Training Glove - CoreNation" data-desc="Training Glove — Proteksi Tangan & Support Pergelangan Tangan. Nggak cuma pelindung tangan biasa — glove ini juga bisa dipakai buat menguatkan pergelangan tangan saat gerakan push. Bahan cukup oke, telapaknya dilapisi karet anti-slip yang sekaligus mengurangi terbentuknya calluses. Cocok buat latihan gym harian yang lebih nyaman dan aman." data-category="Work Out">
-  <div class="slider" data-images="Training_Glove_CoreNation.webp,Training_Glove_CoreNation_buy.jpeg"></div>
-  <div class="card-body">
-    <div class="card-header">
-      <div class="card-name">Training Glove - CoreNation</div>
-      <div class="price-tag">Rp 110–130K</div>
-    </div>
-    <p class="card-desc">Training Glove — Proteksi Tangan & Support Pergelangan Tangan<br>Nggak cuma pelindung tangan biasa — glove ini juga bisa dipakai buat menguatkan pergelangan tangan saat gerakan push. Bahan cukup oke, telapaknya dilapisi karet anti-slip yang sekaligus mengurangi terbentuknya calluses. 💪<br>Cocok buat latihan gym harian yang lebih nyaman dan aman.</p>
-    <a class="card-link" href="https://s.shopee.co.id/2g80TOereF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
-  </div>
-</div>
-      
+        <div class="slider" data-images="Training_Glove_CoreNation.webp,Training_Glove_CoreNation_buy.jpeg"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-name">Training Glove - CoreNation</div>
+            <div class="price-tag">Rp 110–130K</div>
+          </div>
+          <p class="card-desc">Training Glove — Proteksi Tangan & Support Pergelangan Tangan<br>Nggak cuma pelindung tangan biasa — glove ini juga bisa dipakai buat menguatkan pergelangan tangan saat gerakan push. Bahan cukup oke, telapaknya dilapisi karet anti-slip yang sekaligus mengurangi terbentuknya calluses. 💪<br>Cocok buat latihan gym harian yang lebih nyaman dan aman.</p>
+          <a class="card-link" href="https://s.shopee.co.id/2g80TOereF?share_channel_code=1" target="_blank">🛒 Lihat di Shopee</a>
+        </div>
+      </div>
+
     </div><!-- end group Etc -->
 
   </div><!-- end section Work Out -->
@@ -1043,22 +1014,60 @@
 </div>
 
 <script>
-  /* ── WELCOME POPUP: auto-generate buttons from tabs ── */
+  /* ── TOOLTIP: works on hover (desktop) + tap (mobile) ── */
+  const tooltip = document.getElementById('priceTooltip');
+  let tooltipTimer;
+
+  function showTooltip(tag) {
+    const rect = tag.getBoundingClientRect();
+    const tipW = 200;
+    let left = rect.left + rect.width / 2;
+    // Keep tooltip within viewport
+    left = Math.max(tipW / 2 + 8, Math.min(left, window.innerWidth - tipW / 2 - 8));
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = (rect.top - 8) + 'px';
+    tooltip.style.transform = 'translateX(-50%) translateY(-100%)';
+    tooltip.classList.add('visible');
+    clearTimeout(tooltipTimer);
+  }
+
+  function hideTooltip() {
+    tooltipTimer = setTimeout(() => tooltip.classList.remove('visible'), 150);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Attach to all price tags (including future ones in search results)
+    document.body.addEventListener('mouseenter', e => {
+      if (e.target.classList.contains('price-tag')) showTooltip(e.target);
+    }, true);
+    document.body.addEventListener('mouseleave', e => {
+      if (e.target.classList.contains('price-tag')) hideTooltip();
+    }, true);
+    document.body.addEventListener('touchstart', e => {
+      if (e.target.classList.contains('price-tag')) {
+        e.preventDefault();
+        showTooltip(e.target);
+        clearTimeout(tooltipTimer);
+        tooltipTimer = setTimeout(() => tooltip.classList.remove('visible'), 3000);
+      } else {
+        hideTooltip();
+      }
+    }, { passive: false });
+  });
+
+  /* ── WELCOME POPUP ── */
   window.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('#tabs .tab');
     const container = document.getElementById('popupButtons');
-
     tabs.forEach(tab => {
       const btn = document.createElement('button');
       btn.className = 'popup-btn';
       btn.innerHTML = tab.textContent.trim();
       btn.addEventListener('click', () => {
-        // Close popup
         const overlay = document.getElementById('welcomePopup');
         overlay.style.opacity = '0';
         overlay.style.transition = 'opacity 0.3s ease';
         setTimeout(() => overlay.remove(), 300);
-        // Trigger the matching tab
         tab.click();
       });
       container.appendChild(btn);
@@ -1161,9 +1170,7 @@
     let autoReset;
     function resetTimer() {
       clearTimeout(autoReset);
-      if (current !== 0) {
-        autoReset = setTimeout(() => goTo(0), 6000);
-      }
+      if (current !== 0) autoReset = setTimeout(() => goTo(0), 6000);
     }
 
     let startX = 0;
